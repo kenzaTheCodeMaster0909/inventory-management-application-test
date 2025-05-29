@@ -1,12 +1,7 @@
-const express = require("express");
-const cors = require("cors");
-const authRoutes = require("./routes/auth.routes");
-const articleRoutes = require("./routes/article.routes");
+const app = require("../src/app"); // importe ton app Express
 
-const app = express();
-app.use(cors());
-app.use(express.json());
-app.use("/api/auth", authRoutes);
-app.use("/api/articles", articleRoutes);
+const PORT = process.env.PORT || 3000;
 
-module.exports = app;
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
